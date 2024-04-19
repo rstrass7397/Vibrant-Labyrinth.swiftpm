@@ -15,9 +15,12 @@ struct ContentView: View {
                         
                     }, label: {
                         Text("Play")
-                            .frame(width: 400, height: 30)
+                            .frame(width: 150, height: 30)
                             .multilineTextAlignment(.center)
                             .font(.system(size: 45))
+                            .background(RoundedRectangle(cornerRadius: 25.0, style: .continuous)
+                                .frame(width: 150, height: 60)
+                                .foregroundColor(Color(red: 252/255, green: 176/255, blue: 1/255)))
                             .foregroundColor(.black)
                     })
                     
@@ -25,9 +28,12 @@ struct ContentView: View {
                         
                     }, label: {
                         Text("Customize")
-                            .frame(width: 400, height: 30)
+                            .frame(width: 260, height: 30)
                             .multilineTextAlignment(.center)
                             .font(.system(size: 45))
+                            .background(RoundedRectangle(cornerRadius: 25.0, style: .continuous)
+                                .frame(width: 260, height: 60)
+                                .foregroundColor(Color(red: 252/255, green: 176/255, blue: 1/255)))
                             .foregroundColor(.black)
                     })
                     
@@ -35,9 +41,12 @@ struct ContentView: View {
                         
                     }, label: {
                         Text("How To Play")
-                            .frame(width: 400, height: 30)
+                            .frame(width: 290, height: 30)
                             .multilineTextAlignment(.center)
                             .font(.system(size: 45))
+                            .background(RoundedRectangle(cornerRadius: 25.0, style: .continuous)
+                                .frame(width: 290, height: 60)
+                                .foregroundColor(Color(red: 252/255, green: 176/255, blue: 1/255)))
                             .foregroundColor(.black)
                     })
                 }
