@@ -9,6 +9,7 @@ struct ContentView: View {
                     .frame(width: 400, height: 200)
                     .multilineTextAlignment(.center)
                     .font(.system(size: 80))
+                    .foregroundColor(.black)
                 VStack(spacing: 70){
                     Button(action: {
                         
