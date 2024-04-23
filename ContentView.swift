@@ -22,6 +22,7 @@ struct ContentView: View {
                                 .frame(width: 150, height: 60)
                                 .foregroundColor(Color(red: 252/255, green: 176/255, blue: 1/255)))
                             .foregroundColor(.black)
+                            .shadow(radius: 10)
                     })
                     
                     Button(action: {
@@ -35,6 +36,7 @@ struct ContentView: View {
                                 .frame(width: 260, height: 60)
                                 .foregroundColor(Color(red: 252/255, green: 176/255, blue: 1/255)))
                             .foregroundColor(.black)
+                            .shadow(radius: 10)
                     })
                     
                     Button(action: {
@@ -48,11 +50,12 @@ struct ContentView: View {
                                 .frame(width: 290, height: 60)
                                 .foregroundColor(Color(red: 252/255, green: 176/255, blue: 1/255)))
                             .foregroundColor(.black)
+                            .shadow(radius: 10)
                     })
                 }
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(red:255/255, green: 215/255, blue: 0/255))
+        .background(Color(red:255/255, green: 215/255, blue: 80/255))
     }
 }
