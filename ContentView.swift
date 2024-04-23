@@ -1,17 +1,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
-<<<<<<< HEAD
-        NavigationView {
+       
+        NavigationStack{
             VStack{
-                NavigationLink(destination: PlayView()) {
-                    Text("Instruction")
+                NavigationLink("How to play") {
+                    PlayView()
                 }
-                
             }
         }
-=======
+      
+
         
         HStack{
             VStack(spacing: 150){
@@ -62,9 +63,10 @@ struct ContentView: View {
                             .foregroundColor(.black)
                             .shadow(radius: 10)
                     })
+                }
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color(red:255/255, green: 215/255, blue: 80/255))
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(red:255/255, green: 215/255, blue: 80/255))
     }
 }
