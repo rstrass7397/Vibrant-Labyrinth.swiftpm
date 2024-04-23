@@ -1,16 +1,27 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
+       
+        NavigationStack{
+            VStack{
+                NavigationLink("How to play") {
+                    PlayView()
+                }
+            }
+        }
+      
+
         
-        NavigationView {
-            
+        HStack{
             VStack(spacing: 150){
                 Text("Vibrant\nLabyrinth")
                     .frame(width: 400, height: 200)
                     .multilineTextAlignment(.center)
                     .font(.system(size: 80))
                     .foregroundColor(.black)
+                    .shadow(radius: 5)
                 VStack(spacing: 70){
                     Button(action: {
                         
@@ -23,7 +34,7 @@ struct ContentView: View {
                                 .frame(width: 150, height: 60)
                                 .foregroundColor(Color(red: 252/255, green: 176/255, blue: 1/255)))
                             .foregroundColor(.black)
-                            .shadow(radius: 10)
+                            .shadow(radius: 5)
                     })
                     
                     Button(action: {
@@ -37,7 +48,7 @@ struct ContentView: View {
                                 .frame(width: 260, height: 60)
                                 .foregroundColor(Color(red: 252/255, green: 176/255, blue: 1/255)))
                             .foregroundColor(.black)
-                            .shadow(radius: 10)
+                            .shadow(radius: 5)
                     })
                     
                     
@@ -50,7 +61,7 @@ struct ContentView: View {
                                 .frame(width: 290, height: 60)
                                 .foregroundColor(Color(red: 252/255, green: 176/255, blue: 1/255)))
                             .foregroundColor(.black)
-                            .shadow(radius: 10)
+                            .shadow(radius: 5)
                     }
                 }
             }
