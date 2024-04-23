@@ -1,10 +1,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
+       
+        NavigationStack{
+            VStack{
+                NavigationLink("How to play") {
+                    PlayView()
+                }
+            }
+        }
+      
+
         
-        NavigationView {
-            
+        HStack{
             VStack(spacing: 150){
                 Text("Vibrant\nLabyrinth")
                     .frame(width: 400, height: 200)
