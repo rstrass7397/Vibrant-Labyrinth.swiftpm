@@ -50,9 +50,8 @@ struct ContentView: View {
                             .shadow(radius: 10)
                     })
                     
-                    Button(action: {
-                        
-                    }, label: {
+                    
+                    NavigationLink(destination: PlayView()) {
                         Text("How To Play")
                             .frame(width: 290, height: 30)
                             .multilineTextAlignment(.center)
@@ -62,11 +61,12 @@ struct ContentView: View {
                                 .foregroundColor(Color(red: 252/255, green: 176/255, blue: 1/255)))
                             .foregroundColor(.black)
                             .shadow(radius: 10)
-                    })
+                    }
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color(red:255/255, green: 215/255, blue: 80/255))
         }
+        
     }
 }
