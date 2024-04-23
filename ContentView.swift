@@ -3,7 +3,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         
-        HStack{
+          
             VStack(spacing: 150){
                 Text("Vibrant\nLabyrinth")
                     .frame(width: 400, height: 200)
@@ -52,7 +52,6 @@ struct ContentView: View {
                             .foregroundColor(.black)
                             .shadow(radius: 10)
                     })
-                }
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
