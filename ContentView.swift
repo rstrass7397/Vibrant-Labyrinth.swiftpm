@@ -2,18 +2,9 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-<<<<<<< HEAD
-        NavigationView {
-            VStack{
-                NavigationLink(destination: PlayView()) {
-                    Text("Instruction")
-                }
-                
-            }
-        }
-=======
         
-        HStack{
+        NavigationView {
+            
             VStack(spacing: 150){
                 Text("Vibrant\nLabyrinth")
                     .frame(width: 400, height: 200)
@@ -49,9 +40,8 @@ struct ContentView: View {
                             .shadow(radius: 10)
                     })
                     
-                    Button(action: {
-                        
-                    }, label: {
+                    
+                    NavigationLink(destination: PlayView()) {
                         Text("How To Play")
                             .frame(width: 290, height: 30)
                             .multilineTextAlignment(.center)
@@ -61,10 +51,12 @@ struct ContentView: View {
                                 .foregroundColor(Color(red: 252/255, green: 176/255, blue: 1/255)))
                             .foregroundColor(.black)
                             .shadow(radius: 10)
-                    })
+                    }
+                }
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color(red:255/255, green: 215/255, blue: 80/255))
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(red:255/255, green: 215/255, blue: 80/255))
+        
     }
 }
