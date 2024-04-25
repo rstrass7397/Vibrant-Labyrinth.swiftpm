@@ -60,6 +60,5 @@ struct ContentView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color(red:255/255, green: 215/255, blue: 80/255))
         }
-        
     }
 }
