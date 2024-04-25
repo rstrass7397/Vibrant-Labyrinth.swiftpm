@@ -1,38 +1,134 @@
-//
-//  ControllerView.swift
-//  Vibrant Labyrinth
-//
-//  Created by River Lynch on 4/19/24.
-//
 
 import SwiftUI
 
 struct ControllerView: View {
+    @State var timer: Timer?
+    @State var xPos: CGFloat = 200
+    @State var yPos: CGFloat = 300
     var body: some View {
+        Rectangle()
+            .frame(width: 100, height: 100)
+            .position(x: xPos,y: yPos)
         VStack {
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+            Button(action:{
+                yPos -= 20
+            }, label: {
                 Image(systemName: "arrowshape.up.fill")
                     .font(.largeTitle)
+                    .onTapGesture {
+                        upAction()
+                    }
+                    .gesture(
+                        LongPressGesture()
+                            .onEnded { _ in
+                                timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
+                                    upAction()
+                                }
+                            }
+                            .sequenced(before:
+                                        DragGesture(minimumDistance: 0)
+                                .onEnded { _ in
+                                    timer?.invalidate()
+                                    timer = nil
+                                }
+                                      )
+                    )
             })
+            
+            
             HStack {
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                Button(action: {
+                    xPos -= 20
+                }, label: {
                     Image(systemName: "arrowshape.left.fill")
                         .font(.largeTitle)
+                        .onTapGesture {
+                            leftAction()
+                        }
+                        .gesture(
+                            LongPressGesture()
+                                .onEnded { _ in
+                                    timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
+                                        leftAction()
+                                    }
+                                }
+                                .sequenced(before:
+                                            DragGesture(minimumDistance: 0)
+                                    .onEnded { _ in
+                                        timer?.invalidate()
+                                        timer = nil
+                                    }
+                                          )
+                        )
                 })
                 
-                    Image(systemName: "pencil.tip")
-                        .font(.title)
-                        .opacity(0)
+                Image(systemName: "pencil.tip")
+                    .font(.title)
+                    .opacity(0)
                 
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                Button(action: {
+                    xPos += 20
+                }, label: {
                     Image(systemName: "arrowshape.right.fill")
                         .font(.largeTitle)
+                        .onTapGesture {
+                            rightAction()
+                        }
+                        .gesture(
+                            LongPressGesture()
+                                .onEnded { _ in
+                                    timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
+                                        rightAction()
+                                    }
+                                }
+                                .sequenced(before:
+                                            DragGesture(minimumDistance: 0)
+                                    .onEnded { _ in
+                                        timer?.invalidate()
+                                        timer = nil
+                                    }
+                                          )
+                        )
                 })
             }
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+            Button(action: {
+                yPos += 20
+            }, label: {
                 Image(systemName: "arrowshape.down.fill")
                     .font(.largeTitle)
+                    .onTapGesture {
+                        downAction()
+                    }
+                    .gesture(
+                        LongPressGesture()
+                            .onEnded { _ in
+                                timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
+                                    downAction()
+                                }
+                            }
+                            .sequenced(before:
+                                        DragGesture(minimumDistance: 0)
+                                .onEnded { _ in
+                                    timer?.invalidate()
+                                    timer = nil
+                                }
+                                      )
+                    )
             })
         }
     }
+    func leftAction() {
+        xPos -= 20
+    }
+    func rightAction() {
+        xPos += 20
+    }
+    func upAction() {
+        yPos -= 20
+    }
+    func downAction() {
+        yPos += 20
+    }
 }
+
+
