@@ -10,7 +10,7 @@ import SwiftUI
 struct CustomizationView: View {
     
     //When a customization option is selected, the button turns green.
-    @State var mustacheisSelected: Bool = false
+    @State var mustacheIsSelected: Bool = false
     @State var monocleIsSelected: Bool = false
     @State var eyesAreSelected: Bool = false
     
@@ -30,20 +30,38 @@ struct CustomizationView: View {
                 
                 //Each button has a picture of a different option on them
                 HStack {
-                    Button(action: {}, label: {
+                    Button(action: {
+                        if mustacheIsSelected == false {
+                            mustacheIsSelected = true
+                        } else {
+                            mustacheIsSelected = false
+                        }
+                    }, label: {
                     RoundedRectangle(cornerRadius: 20)
                         .frame(width: 100, height: 100)
-                        .foregroundStyle((mustacheisSelected ? .green : .white))
+                        .foregroundStyle((mustacheIsSelected ? .green : .white))
                 })
-                    Button(action: {}, label: {
+                    Button(action: {
+                        if monocleIsSelected == false {
+                            monocleIsSelected = true
+                        } else {
+                            monocleIsSelected = false
+                        }
+                    }, label: {
                         RoundedRectangle(cornerRadius: 20)
                             .frame(width: 100, height: 100)
-                            .foregroundStyle((mustacheisSelected ? .green : .white))
+                            .foregroundStyle((monocleIsSelected ? .green : .white))
                     })
-                    Button(action: {}, label: {
+                    Button(action: {
+                        if eyesAreSelected == false {
+                            eyesAreSelected = true
+                        } else {
+                            eyesAreSelected = false
+                        }
+                    }, label: {
                         RoundedRectangle(cornerRadius: 20)
                             .frame(width: 100, height: 100)
-                            .foregroundStyle((mustacheisSelected ? .green : .white))
+                            .foregroundStyle((eyesAreSelected ? .green : .white))
                     })}
                 Divider()
                     .frame(height: 25)
