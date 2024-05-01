@@ -79,7 +79,7 @@ struct CustomizationView: View {
                 ZStack {
                     Rectangle()
                         .frame(width: 150, height: 150)
-                        .background(.white)
+                        .foregroundStyle(.white)
                     Image("Eyes")
                         .resizable()
                         .frame(width: 140, height: 140)
