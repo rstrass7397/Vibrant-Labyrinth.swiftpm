@@ -9,8 +9,8 @@ import SwiftUI
 
 struct FirstLevel:View {
     var body: some View {
-        Text("set up the first level here")
-            .navigationTitle("Level 1")
+        Rectangle()
+            .frame(width: 400, height: 400)
     }
 }
 

@@ -6,9 +6,6 @@ struct ControllerView: View {
     @State var xPos: CGFloat = 200
     @State var yPos: CGFloat = 300
     var body: some View {
-        Rectangle()
-            .frame(width: 100, height: 100)
-            .position(x: xPos,y: yPos)
         VStack {
             Button(action:{
                 yPos -= 20
