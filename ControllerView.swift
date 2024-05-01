@@ -113,6 +113,7 @@ struct ControllerView: View {
                     )
             })
         }
+        .frame(width: 400, height: 180)
     }
     func leftAction() {
         xPos -= 20
