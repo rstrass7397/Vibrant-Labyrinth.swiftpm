@@ -11,7 +11,7 @@ struct CustomizationView: View {
     
     //When a customization option is selected, the button turns green.
     @State var mustacheIsSelected: Bool = false
-    @State var monocleIsSelected: Bool = false
+    @State var glassesAreSelected: Bool = false
     @State var eyesAreSelected: Bool = false
     
     var body: some View {
@@ -30,58 +30,94 @@ struct CustomizationView: View {
                 
                 //Each button has a picture of a different option on them
                 HStack {
-                    Button(action: {
-                        if mustacheIsSelected == false {
-                            mustacheIsSelected = true
-                        } else {
-                            mustacheIsSelected = false
-                        }
-                    }, label: {
-                    RoundedRectangle(cornerRadius: 20)
-                        .frame(width: 100, height: 100)
-                        .foregroundStyle((mustacheIsSelected ? .green : .white))
-                })
-                    Button(action: {
-                        if monocleIsSelected == false {
-                            monocleIsSelected = true
-                        } else {
-                            monocleIsSelected = false
-                        }
-                    }, label: {
-                        RoundedRectangle(cornerRadius: 20)
-                            .frame(width: 100, height: 100)
-                            .foregroundStyle((monocleIsSelected ? .green : .white))
-                    })
-                    Button(action: {
-                        if eyesAreSelected == false {
-                            eyesAreSelected = true
-                        } else {
-                            eyesAreSelected = false
-                        }
-                    }, label: {
-                        RoundedRectangle(cornerRadius: 20)
-                            .frame(width: 100, height: 100)
-                            .foregroundStyle((eyesAreSelected ? .green : .white))
-                    })}
+                    
+                        Button(action: {
+                            if mustacheIsSelected == false {
+                                mustacheIsSelected = true
+                            } else {
+                                mustacheIsSelected = false
+                            }
+                        }, label: {
+                            RoundedRectangle(cornerRadius: 20)
+                                .frame(width: 100, height: 100)
+                                .foregroundStyle((mustacheIsSelected ? .green : .white))
+                                .overlay(Image("Mustache")
+                                    .resizable()
+                                    .frame(width: 95, height: 30))
+                        })
+                        
+                    
+                    
+                        Button(action: {
+                            if glassesAreSelected == false {
+                                glassesAreSelected = true
+                            } else {
+                                glassesAreSelected = false
+                            }
+                        }, label: {
+                            RoundedRectangle(cornerRadius: 20)
+                                .frame(width: 100, height: 100)
+                                .foregroundStyle((glassesAreSelected ? .green : .white))
+                                .overlay(Image("Glasses")
+                                    .resizable()
+                                    .frame(width: 95, height: 35))
+                        })
+                        
+                    
+                    
+                        Button(action: {
+                            if eyesAreSelected == false {
+                                eyesAreSelected = true
+                            } else {
+                                eyesAreSelected = false
+                            }
+                        }, label: {
+                            RoundedRectangle(cornerRadius: 20)
+                                .frame(width: 100, height: 100)
+                                .foregroundStyle((eyesAreSelected ? .green : .white))
+                                .overlay {
+                                    Image("Eyes")
+                                        .resizable()
+                                        .frame(width: 95, height: 95)
+                                }
+                        })
+                        
+                    
+                }
                 Divider()
                     .frame(height: 25)
                 
                 //To view your full customization
-                Rectangle()
-                    .frame(width: 150, height: 150)
-                
+                ZStack {
+                    Rectangle()
+                        .frame(width: 150, height: 150)
+                        .background(.white)
+                    Image("Eyes")
+                        .resizable()
+                        .frame(width: 140, height: 140)
+                        .offset(y: -15)
+                        .opacity((eyesAreSelected ? 1 : 0))
+                    Image("Glasses")
+                        .resizable()
+                        .frame(width: 150, height: 55)
+                        .offset(y: -15)
+                        .opacity((glassesAreSelected ? 1 : 0))
+                    Image("Mustache")
+                        .resizable()
+                        .frame(width: 130, height: 40)
+                        .offset(y: 25)
+                        .opacity((mustacheIsSelected ? 1 : 0))
+                }
                 //Brings the user back to the main menu
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                    Text("Let's Go!")
-                        .frame(width: 100, height: 40)
-                        .foregroundStyle(.white)
-                        .background(.green)
-                        .clipShape(RoundedRectangle(cornerRadius: 15))
-                })
+//                Button(action: {}, label: {
+//                    Text("Let's Go!")
+//                        .frame(width: 100, height: 40)
+//                        .foregroundStyle(.white)
+//                        .background(.green)
+//                        .clipShape(RoundedRectangle(cornerRadius: 15))
+//                })
             }
             .shadow(radius: 5)
         }
     }
 }
-
-
