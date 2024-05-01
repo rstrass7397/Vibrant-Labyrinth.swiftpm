@@ -10,9 +10,9 @@ import SwiftUI
 struct CustomizationView: View {
     
     //When a customization option is selected, the button turns green.
-    @State var mustacheIsSelected: Bool = false
-    @State var glassesAreSelected: Bool = false
-    @State var eyesAreSelected: Bool = false
+    @AppStorage("mustache") var mustacheIsSelected: Bool = false
+    @AppStorage("glasses") var glassesAreSelected: Bool = false
+    @AppStorage("eyes") var eyesAreSelected: Bool = false
     
     var body: some View {
         ZStack {
@@ -32,11 +32,7 @@ struct CustomizationView: View {
                 HStack {
                     
                         Button(action: {
-                            if mustacheIsSelected == false {
-                                mustacheIsSelected = true
-                            } else {
-                                mustacheIsSelected = false
-                            }
+                            mustacheIsSelected.toggle()
                         }, label: {
                             RoundedRectangle(cornerRadius: 20)
                                 .frame(width: 100, height: 100)
@@ -49,11 +45,7 @@ struct CustomizationView: View {
                     
                     
                         Button(action: {
-                            if glassesAreSelected == false {
-                                glassesAreSelected = true
-                            } else {
-                                glassesAreSelected = false
-                            }
+                            glassesAreSelected.toggle()
                         }, label: {
                             RoundedRectangle(cornerRadius: 20)
                                 .frame(width: 100, height: 100)
@@ -66,11 +58,7 @@ struct CustomizationView: View {
                     
                     
                         Button(action: {
-                            if eyesAreSelected == false {
-                                eyesAreSelected = true
-                            } else {
-                                eyesAreSelected = false
-                            }
+                            eyesAreSelected.toggle()
                         }, label: {
                             RoundedRectangle(cornerRadius: 20)
                                 .frame(width: 100, height: 100)
