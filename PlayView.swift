@@ -25,6 +25,7 @@ struct PlayView: View {
                 Text("Use the arrow buttons to move")
                     .frame(width: 175, height: 100)
                     .font(.system(size: 25))
+                    .foregroundColor(.black)
                 VStack{
                     Image(systemName: "arrowshape.up.fill")
                         .font(.largeTitle)
@@ -48,6 +49,7 @@ struct PlayView: View {
                 Text("This red box is the exit")
                     .frame(width: 175, height: 200)
                     .font(.system(size: 30))
+                    .foregroundColor(.black)
                 Rectangle()
                     .frame(width: 150, height: 100)
                     .foregroundColor(Color(red: 159/255,green: 0/255, blue: 0/255))
