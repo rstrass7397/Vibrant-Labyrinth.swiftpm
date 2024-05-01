@@ -28,9 +28,7 @@ struct ContentView: View {
                                 .shadow(radius: 5)
                         }
                         
-                        Button(action: {
-                            
-                        }, label: {
+                        NavigationLink(destination: CustomizationView()) {
                             Text("Customize")
                                 .frame(width: 260, height: 30)
                                 .multilineTextAlignment(.center)
@@ -40,7 +38,7 @@ struct ContentView: View {
                                     .foregroundColor(Color(red: 252/255, green: 176/255, blue: 1/255)))
                                 .foregroundColor(.black)
                                 .shadow(radius: 5)
-                        })
+                        }
                         
                         
                         NavigationLink(destination: PlayView()) {
