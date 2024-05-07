@@ -5,6 +5,10 @@ struct ControllerView: View {
     @State var timer: Timer?
     @State var xPos: CGFloat = 200
     @State var yPos: CGFloat = 300
+    //Color for level is the same as the color of the arrows, change colors for each level
+    @State var levelR: Double = 255.0
+    @State var levelG: Double = 204.0
+    @State var levelB: Double = 0.0
     var body: some View {
         VStack {
             Button(action:{
@@ -114,6 +118,7 @@ struct ControllerView: View {
             })
         }
         .frame(width: 400, height: 180)
+        .foregroundStyle(Color(red: levelR/255, green: levelG/255, blue: levelB/255))
     }
     func leftAction() {
         xPos -= 20
