@@ -18,6 +18,7 @@ struct FirstLevel:View {
             ZStack {
                 Rectangle()
                     .frame(width: 400, height: 400)
+                    .foregroundStyle(.black)
                 //The Goal
                 Rectangle()
                     .frame(width: 50, height: 50)
@@ -27,6 +28,7 @@ struct FirstLevel:View {
                 Rectangle()
                     .frame(width: 100, height: 100)
                     .offset(x: 150, y: -100)
+                    .foregroundStyle(.green)
                 //The Maze
                 ZStack {
                     Rectangle()

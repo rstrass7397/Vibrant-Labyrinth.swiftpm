@@ -16,7 +16,6 @@ struct LevelContainerView:View {
             Rectangle()
                 .frame(width: 400, height: 30)
                 .foregroundColor(.white)
-            ControllerView()
             NavigationLink(destination: LevelSelectView()
             ) {
                 Text("Select Level")
