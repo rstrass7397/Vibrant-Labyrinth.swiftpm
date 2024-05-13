@@ -16,7 +16,8 @@ let package = Package(
         .iOSApplication(
             name: "Vibrant Labyrinth",
             targets: ["AppModule"],
-            bundleIdentifier: "org.jhhs.627397.Vibrant-Labyrinth",
+            bundleIdentifier: "org.jhhs.625213.Vibrant-Labyrinth",
+            teamIdentifier: "N2N2K4R5KS",
             displayVersion: "1.0",
             bundleVersion: "1",
             appIcon: .asset("AppIcon"),
