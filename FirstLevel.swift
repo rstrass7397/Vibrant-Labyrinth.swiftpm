@@ -11,6 +11,7 @@ struct FirstLevel: View {
     @State var timer: Timer?
     @State var xPos: CGFloat = 350
     @State var yPos: CGFloat = -50
+    @State var collision: Bool = false
     var body: some View {
         VStack {
             ZStack {
@@ -87,12 +88,18 @@ struct FirstLevel: View {
                 }
                 .foregroundStyle(.yellow)
                 // Button appears upon completion. Above it, text. It says "Congratulations! You beat level 1. Do you want to continue. to level 2?" Button can say like "Let's go" or something. Button transfers user to the indigo maze level.
+                self.collision ? Text("You hit the wall!") : nil
             }
         }
         Rectangle()
             .frame(width: 40, height: 40)
             .foregroundColor(.pink)
             .position(x: xPos, y: yPos)
+//            .onChanged({ value in
+//                self.xPos = value.location.x
+//                self.yPos = value.location.y
+//                self.checkCollision()
+        //})
         VStack {
             Button(action:{
                 yPos -= 20
@@ -115,7 +122,7 @@ struct FirstLevel: View {
                                     timer?.invalidate()
                                     timer = nil
                                 }
-                                      )
+                          )
                     )
             })
             
@@ -213,5 +220,13 @@ struct FirstLevel: View {
     }
     func downAction() {
         yPos += 20
+    }
+    func checkCollision () {
+        if abs(self.xPos) < 100 &&
+            abs(self.yPos) < 100 {
+            self.collision = true
+        } else {
+            self.collision = false
+        }
     }
 }
