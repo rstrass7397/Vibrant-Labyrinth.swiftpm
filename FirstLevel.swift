@@ -28,10 +28,10 @@ struct FirstLevel: View {
                 ZStack {
                     //Maze
                     Rectangle()
-                        .frame(width: 400, height: 10)
+                        .frame(width: 405, height: 10)
                         .offset(x: 0, y: 200)
                     Rectangle()
-                        .frame(width: 400, height: 10)
+                        .frame(width: 405, height: 10)
                         .offset(x: 0, y: -200)
                     Rectangle()
                         .frame(width: 10, height: 400)
