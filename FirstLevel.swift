@@ -1,4 +1,3 @@
-
 //
 //  FirstLevel.swift
 //  Vibrant Labyrinth
@@ -32,16 +31,16 @@ struct FirstLevel:View {
                 //The Maze
                 ZStack {
                     Rectangle()
-                        .frame(width: 10, height: 400)
+                        .frame(width: 10, height: 405)
                         .offset(x: 200, y: 0)
                     Rectangle()
-                        .frame(width: 10, height: 400)
+                        .frame(width: 10, height: 405)
                         .offset(x: -200, y: 0)
                     Rectangle()
-                        .frame(width: 400, height: 10)
+                        .frame(width: 405, height: 10)
                         .offset(x: 0, y: 200)
                     Rectangle()
-                        .frame(width: 400, height: 10)
+                        .frame(width: 405, height: 10)
                         .offset(x: 0, y: -200)
                     Rectangle()
                         .frame(width: 100, height: 10)
