@@ -16,8 +16,8 @@ struct LevelContainerView:View {
             Rectangle()
                 .frame(width: 400, height: 30)
                 .foregroundColor(.white)
-            NavigationLink(destination: LevelSelectView()
-            ) {
+//            NavigationLink(destination: LevelSelectView()
+//            ) {
                 Text("Select Level")
                     .frame(width: 300, height: 80)
                     .multilineTextAlignment(.center)
@@ -27,7 +27,7 @@ struct LevelContainerView:View {
                         .foregroundColor(.white))
                     .foregroundColor(.black)
                     .shadow(radius: 5)
-            }
+//            }
 
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
