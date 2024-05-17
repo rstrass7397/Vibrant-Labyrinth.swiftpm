@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 struct LevelSelectView: View {
-    @Environment(\.dismiss) var dismiss
     @State var number = 1
     @State var lvl1active = true
     @State var lvl1visibility = 1.0
@@ -266,7 +265,6 @@ struct LevelSelectView: View {
         
 
         }
-        .navigationBarBackButtonHidden(true)
     }
     
 
