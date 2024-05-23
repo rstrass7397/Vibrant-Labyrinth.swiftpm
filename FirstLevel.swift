@@ -121,27 +121,6 @@ struct FirstLevel: View {
             }, label: {
                 Image(systemName: "arrowshape.up.fill")
                     .font(.largeTitle)
-                    .onTapGesture {
-                        upAction()
-                    }
-                    .gesture(
-                        LongPressGesture()
-                            .onEnded { _ in
-                                timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
-                                    upAction()
-                                }
-                            }
-                            .sequenced(before:
-                                        DragGesture(minimumDistance: 0)
-                                .onEnded { _ in
-                                    timer?.invalidate()
-                                    timer = nil
-                                }
-                                      )
-                        
-                    )
-                
-                
             })
             
             
@@ -151,24 +130,6 @@ struct FirstLevel: View {
                 }, label: {
                     Image(systemName: "arrowshape.left.fill")
                         .font(.largeTitle)
-                        .onTapGesture {
-                            leftAction()
-                        }
-                        .gesture(
-                            LongPressGesture()
-                                .onEnded { _ in
-                                    timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
-                                        leftAction()
-                                    }
-                                }
-                                .sequenced(before:
-                                            DragGesture(minimumDistance: 0)
-                                    .onEnded { _ in
-                                        timer?.invalidate()
-                                        timer = nil
-                                    }
-                                          )
-                        )
                 })
                 
                 Image(systemName: "pencil.tip")
@@ -180,24 +141,6 @@ struct FirstLevel: View {
                 }, label: {
                     Image(systemName: "arrowshape.right.fill")
                         .font(.largeTitle)
-                        .onTapGesture {
-                            rightAction()
-                        }
-                        .gesture(
-                            LongPressGesture()
-                                .onEnded { _ in
-                                    timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
-                                        rightAction()
-                                    }
-                                }
-                                .sequenced(before:
-                                            DragGesture(minimumDistance: 0)
-                                    .onEnded { _ in
-                                        timer?.invalidate()
-                                        timer = nil
-                                    }
-                                          )
-                        )
                 })
             }
             Button(action: {
@@ -205,24 +148,6 @@ struct FirstLevel: View {
             }, label: {
                 Image(systemName: "arrowshape.down.fill")
                     .font(.largeTitle)
-                    .onTapGesture {
-                        downAction()
-                    }
-                    .gesture(
-                        LongPressGesture()
-                            .onEnded { _ in
-                                timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
-                                    downAction()
-                                }
-                            }
-                            .sequenced(before:
-                                        DragGesture(minimumDistance: 0)
-                                .onEnded { _ in
-                                    timer?.invalidate()
-                                    timer = nil
-                                }
-                                      )
-                    )
             })
         }
         .frame(width: 400, height: 180)
@@ -240,13 +165,5 @@ struct FirstLevel: View {
     }
     func downAction() {
         yPos += 20
-    }
-    func checkCollision () {
-        if abs(self.xPos) < 100 &&
-            abs(self.yPos) < 100 {
-            self.collision = true
-        } else {
-            self.collision = false
-        }
     }
 }

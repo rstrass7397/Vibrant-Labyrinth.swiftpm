@@ -14,7 +14,7 @@ struct ContentView: View {
                             .shadow(radius: 5)
                         VStack(spacing: 70){
                             
-                            NavigationLink(destination: LevelContainerView()
+                            NavigationLink(destination: LevelSelectView()
                             ) {
                                 Text("Play")
                                     .frame(width: 150, height: 30)
