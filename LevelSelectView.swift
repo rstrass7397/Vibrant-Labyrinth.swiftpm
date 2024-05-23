@@ -102,7 +102,7 @@ struct LevelSelectView: View {
             }
             .disabled(lvl1active)
             .opacity(lvl1visibility)
-            NavigationLink(destination: SecondLevel()
+            NavigationLink(destination: SecondLevel() 
             ) {
                 VStack {
                     ZStack {

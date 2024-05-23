@@ -12,6 +12,9 @@ struct FirstLevel: View {
     @State var xPos: CGFloat = 350
     @State var yPos: CGFloat = -50
     @State var collision: Bool = false
+    @State var wins: Int = 0
+    @State var losses: Int = 0
+    
     var body: some View {
         VStack {
             ZStack {
@@ -90,17 +93,29 @@ struct FirstLevel: View {
                 // Button appears upon completion. Above it, text. It says "Congratulations! You beat level 1. Do you want to continue. to level 2?" Button can say like "Let's go" or something. Button transfers user to the indigo maze level.
                 self.collision ? Text("You hit the wall!") : nil
             }
+            HStack{
+                Text("Wins: \(wins)")
+                Text("Losses: \(losses)")
+            }
+            .font(.headline)
+            .foregroundColor(.black) 
         }
         Rectangle()
             .frame(width: 40, height: 40)
             .foregroundColor(.pink)
             .position(x: xPos, y: yPos)
-//            .onChanged({ value in
-//                self.xPos = value.location.x
-//                self.yPos = value.location.y
-//                self.checkCollision()
+        //            .onChanged({ value in
+        //                self.xPos = value.location.x
+        //                self.yPos = value.location.y
+        //                self.checkCollision()
         //})
+        
+        
+            
+        
+        
         VStack {
+            
             Button(action:{
                 yPos -= 20
             }, label: {
@@ -122,8 +137,11 @@ struct FirstLevel: View {
                                     timer?.invalidate()
                                     timer = nil
                                 }
-                          )
+                                      )
+                        
                     )
+                
+                
             })
             
             
@@ -208,6 +226,8 @@ struct FirstLevel: View {
             })
         }
         .frame(width: 400, height: 180)
+        
+        
     }
     func leftAction() {
         xPos -= 20

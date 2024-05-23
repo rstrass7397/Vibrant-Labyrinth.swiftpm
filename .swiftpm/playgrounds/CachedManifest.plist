@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CachedManifest</key>
+	<dict>
+		<key>manifestData</key>
+		<data>
+		eyJkZXBlbmRlbmNpZXMiOltdLCJkaXNwbGF5TmFtZSI6IlZpYnJhbnQgTGFi
+		eXJpbnRoIiwicGFja2FnZUtpbmQiOnsicm9vdCI6e319LCJwbGF0Zm9ybXMi
+		Olt7Im9wdGlvbnMiOltdLCJwbGF0Zm9ybU5hbWUiOiJpb3MiLCJ2ZXJzaW9u
+		IjoiMTYuMCJ9XSwicHJvZHVjdHMiOlt7Im5hbWUiOiJWaWJyYW50IExhYnly
+		aW50aCIsInNldHRpbmdzIjpbeyJidW5kbGVJZGVudGlmaWVyIjpbIm9yZy5q
+		aGhzLjYyNTIxMy5WaWJyYW50LUxhYnlyaW50aCJdfSx7InRlYW1JZGVudGlm
+		aWVyIjpbIk4yTjJLNFI1S1MiXX0seyJkaXNwbGF5VmVyc2lvbiI6WyIxLjAi
+		XX0seyJidW5kbGVWZXJzaW9uIjpbIjEiXX0seyJpT1NBcHBJbmZvIjpbeyJh
+		Y2NlbnRDb2xvciI6eyJwcmVzZXRDb2xvciI6eyJwcmVzZXRDb2xvciI6eyJy
+		YXdWYWx1ZSI6InJlZCJ9fX0sImFwcEljb24iOnsiYXNzZXQiOnsibmFtZSI6
+		IkFwcEljb24ifX0sImNhcGFiaWxpdGllcyI6W10sInN1cHBvcnRlZERldmlj
+		ZUZhbWlsaWVzIjpbInBhZCIsInBob25lIl0sInN1cHBvcnRlZEludGVyZmFj
+		ZU9yaWVudGF0aW9ucyI6W3sicG9ydHJhaXQiOnt9fSx7ImxhbmRzY2FwZVJp
+		Z2h0Ijp7fX0seyJsYW5kc2NhcGVMZWZ0Ijp7fX0seyJwb3J0cmFpdFVwc2lk
+		ZURvd24iOnsiY29uZGl0aW9uIjp7ImRldmljZUZhbWlsaWVzIjpbInBhZCJd
+		fX19XX1dfV0sInRhcmdldHMiOlsiQXBwTW9kdWxlIl0sInR5cGUiOnsiZXhl
+		Y3V0YWJsZSI6bnVsbH19XSwidGFyZ2V0TWFwIjp7IkFwcE1vZHVsZSI6eyJk
+		ZXBlbmRlbmNpZXMiOltdLCJleGNsdWRlIjpbXSwibmFtZSI6IkFwcE1vZHVs
+		ZSIsInBhY2thZ2VBY2Nlc3MiOmZhbHNlLCJwYXRoIjoiLiIsInJlc291cmNl
+		cyI6W10sInNldHRpbmdzIjpbXSwidHlwZSI6ImV4ZWN1dGFibGUifX0sInRh
+		cmdldHMiOlt7ImRlcGVuZGVuY2llcyI6W10sImV4Y2x1ZGUiOltdLCJuYW1l
+		IjoiQXBwTW9kdWxlIiwicGFja2FnZUFjY2VzcyI6ZmFsc2UsInBhdGgiOiIu
+		IiwicmVzb3VyY2VzIjpbXSwic2V0dGluZ3MiOltdLCJ0eXBlIjoiZXhlY3V0
+		YWJsZSJ9XSwidG9vbHNWZXJzaW9uIjp7Il92ZXJzaW9uIjoiNS44LjAifX0=
+		</data>
+		<key>manifestHash</key>
+		<data>
+		/M30s9fdVknk3UbdcI31vpfGeIcFmJPnLzXuEUfjM30=
+		</data>
+		<key>schemaVersion</key>
+		<integer>4</integer>
+		<key>swiftPMVersionString</key>
+		<string>5.9.0</string>
+	</dict>
+</dict>
+</plist>
