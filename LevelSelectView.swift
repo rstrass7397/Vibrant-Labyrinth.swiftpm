@@ -10,7 +10,7 @@ import SwiftUI
 
 struct LevelSelectView: View {
     @State var number = 1
-    @State var lvl1active = true
+    @State var lvl1active = false
     @State var lvl1visibility = 1.0
     @State var lvl2active = false
     @State var lvl2visibility = 0.0

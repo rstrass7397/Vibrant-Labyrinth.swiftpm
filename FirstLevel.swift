@@ -10,10 +10,12 @@ import SwiftUI
 struct FirstLevel: View {
     @State var timer: Timer?
     @State var xPos: CGFloat = 350
-    @State var yPos: CGFloat = -50
+    @State var yPos: CGFloat = -80
     @State var collision: Bool = false
     @State var wins: Int = 0
     @State var losses: Int = 0
+    @State var maze = [mazePiece(positionX: 200, positionY: 400, SideX: 405, SideY: 10)]
+
     
     var body: some View {
         VStack {
@@ -26,41 +28,44 @@ struct FirstLevel: View {
                 Rectangle()
                     .frame(width: 100, height: 100)
                     .foregroundStyle(.red)
-                    .offset(x: -150, y: 150)
+                    .position(x: 50, y: 350)
                 //Start
                 Rectangle()
                     .frame(width: 100, height: 100)
                     .foregroundStyle(.green)
-                    .offset(x: 150, y: 150)
+                    .position(x: 350, y: 350)
                 ZStack {
                     //Maze
+                    ForEach(maze ,id: \.self){piece in
+                        Rectangle()
+                            .frame(width: CGFloat(piece.SideX), height: CGFloat(piece.SideY))
+                            .position(x: CGFloat(piece.positionX), y: CGFloat(piece.positionY))
+                            .foregroundColor(.blue)
+                    }
                     Rectangle()
                         .frame(width: 405, height: 10)
-                        .offset(x: 0, y: 200)
-                    Rectangle()
-                        .frame(width: 405, height: 10)
-                        .offset(x: 0, y: -200)
+                        .position(x: 200, y: 0)
                     Rectangle()
                         .frame(width: 10, height: 400)
-                        .offset(x: 200, y: 0)
+                        .position(x: 400, y: 200)
                     Rectangle()
                         .frame(width: 10, height: 400)
-                        .offset(x: -200, y: 0)
+                        .position(x: 0, y: 200)
                     Rectangle()
                         .frame(width: 10, height: 300)
-                        .offset(x: -100, y: 50)
+                        .position(x: 100, y:250)
                     Rectangle()
                         .frame(width: 10, height: 100)
-                        .offset(x: 0, y: 50)
+                        .position(x: 200, y: 250)
                     Rectangle()
                         .frame(width: 200, height: 10)
-                        .offset(x: 100, y: 100)
+                        .position(x: 300, y: 300)
                     Rectangle()
                         .frame(width: 200, height: 10)
-                        .offset(x: 0, y: -100)
+                        .position(x: 200, y: 100)
                     Rectangle()
                         .frame(width: 10, height: 100)
-                        .offset(x: 100, y: -50)
+                        .position(x: 300, y: 150)
                     //Smoothing out jagged edges
                     Circle()
                         .frame(width: 10)
@@ -91,33 +96,24 @@ struct FirstLevel: View {
                 }
                 .foregroundStyle(.yellow)
                 // Button appears upon completion. Above it, text. It says "Congratulations! You beat level 1. Do you want to continue. to level 2?" Button can say like "Let's go" or something. Button transfers user to the indigo maze level.
-                self.collision ? Text("You hit the wall!") : nil
             }
             HStack{
                 Text("Wins: \(wins)")
                 Text("Losses: \(losses)")
             }
             .font(.headline)
-            .foregroundColor(.black) 
+            .foregroundColor(.black)
         }
         Rectangle()
             .frame(width: 40, height: 40)
             .foregroundColor(.pink)
             .position(x: xPos, y: yPos)
-        //            .onChanged({ value in
-        //                self.xPos = value.location.x
-        //                self.yPos = value.location.y
-        //                self.checkCollision()
-        //})
-        
-        
-            
         
         
         VStack {
             
             Button(action:{
-                yPos -= 20
+                upAction()
             }, label: {
                 Image(systemName: "arrowshape.up.fill")
                     .font(.largeTitle)
@@ -126,7 +122,8 @@ struct FirstLevel: View {
             
             HStack {
                 Button(action: {
-                    xPos -= 20
+                    leftAction()
+                    
                 }, label: {
                     Image(systemName: "arrowshape.left.fill")
                         .font(.largeTitle)
@@ -137,14 +134,14 @@ struct FirstLevel: View {
                     .opacity(0)
                 
                 Button(action: {
-                    xPos += 20
+                    rightAction()
                 }, label: {
                     Image(systemName: "arrowshape.right.fill")
                         .font(.largeTitle)
                 })
             }
             Button(action: {
-                yPos += 20
+                downAction()
             }, label: {
                 Image(systemName: "arrowshape.down.fill")
                     .font(.largeTitle)
@@ -164,6 +161,26 @@ struct FirstLevel: View {
         yPos -= 20
     }
     func downAction() {
-        yPos += 20
+       var dontmove = false
+        for piece in maze{
+            if ((piece.positionY - Int(yPos + 20) >= -1 * (20 + (piece.SideY / 2)) && piece.positionY - Int(yPos + 20) <= (20 + (piece.SideY / 2))) && (piece.positionX - Int(xPos) >= -1 * (20 + (piece.SideX / 2)) && piece.positionX - Int(xPos) <= (20 + (piece.SideX / 2)))) {
+                dontmove = true
+                print("touching")
+            }
+        }
+        if dontmove == false{
+            withAnimation{
+                yPos += 20
+            }
+        }
     }
 }
+
+
+struct mazePiece: Hashable{
+    var positionX: Int
+    var positionY: Int
+    var SideX: Int
+    var SideY: Int
+}
+
