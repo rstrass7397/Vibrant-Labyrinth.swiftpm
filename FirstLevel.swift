@@ -10,13 +10,13 @@ import SwiftUI
 struct FirstLevel: View {
     @State var timer: Timer?
     @State var xPos: CGFloat = 350
-    @State var yPos: CGFloat = -50
-    @State var collision: Bool = false
-    @State var wins: Int = 0
-    @State var losses: Int = 0
-    
+    @State var yPos: CGFloat = -70
+    @ObservedObject var player: Player
+//    @StateObject var playerView = PlayerView(player: Player())
     var body: some View {
         VStack {
+//            FirstLevel(player:playerView.player)
+//            
             ZStack {
                 //Play Area
                 Rectangle()
@@ -91,27 +91,48 @@ struct FirstLevel: View {
                 }
                 .foregroundStyle(.yellow)
                 // Button appears upon completion. Above it, text. It says "Congratulations! You beat level 1. Do you want to continue. to level 2?" Button can say like "Let's go" or something. Button transfers user to the indigo maze level.
-                self.collision ? Text("You hit the wall!") : nil
+                
             }
-            HStack{
-                Text("Wins: \(wins)")
-                Text("Losses: \(losses)")
+            VStack{
+               Text("Score")
+                    .font(.largeTitle)
+                Text("\(player.score)")
+                    .font(.title)
             }
             .font(.headline)
-            .foregroundColor(.black) 
-        }
-        Rectangle()
+            .foregroundColor(.black)
+            Spacer()
+            
+//            
+//            HStack {
+//                Button(action: {
+//                    playerView.increaseScore()
+//                }) {
+//                    Text("Win")
+//                        .padding()
+//                        .background(Color.green)
+//                        .foregroundColor(.white)
+//                        .cornerRadius(10)
+//                }
+//                Button(action: {
+//                    playerView.decreaseScore()
+//                }) {
+//                    Text("Lose")
+//                        .padding()
+//                        .background(Color.red)
+//                        .foregroundColor(.white)
+//                        .cornerRadius(10)
+//                }
+            }
+        
+         Rectangle()
             .frame(width: 40, height: 40)
             .foregroundColor(.pink)
             .position(x: xPos, y: yPos)
-        //            .onChanged({ value in
-        //                self.xPos = value.location.x
-        //                self.yPos = value.location.y
-        //                self.checkCollision()
-        //})
         
         
-            
+        
+        
         
         
         VStack {
@@ -241,12 +262,8 @@ struct FirstLevel: View {
     func downAction() {
         yPos += 20
     }
-    func checkCollision () {
-        if abs(self.xPos) < 100 &&
-            abs(self.yPos) < 100 {
-            self.collision = true
-        } else {
-            self.collision = false
-        }
-    }
 }
+    
+   
+
+    
