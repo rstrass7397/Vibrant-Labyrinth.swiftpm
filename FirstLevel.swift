@@ -14,7 +14,7 @@ struct FirstLevel: View {
     @State var collision: Bool = false
     @State var wins: Int = 0
     @State var losses: Int = 0
-    @State var maze = [mazePiece(positionX: 200, positionY: 400, SideX: 405, SideY: 10)]
+    @State var maze = [mazePiece(positionX: 200, positionY: -20, SideX: 405, SideY: 10), ]
 
     
     var body: some View {
@@ -36,10 +36,10 @@ struct FirstLevel: View {
                     .position(x: 350, y: 350)
                 ZStack {
                     //Maze
-                    ForEach(maze ,id: \.self){piece in
+                    ForEach(maze, id: \.self){piece in
                         Rectangle()
                             .frame(width: CGFloat(piece.SideX), height: CGFloat(piece.SideY))
-                            .position(x: CGFloat(piece.positionX), y: CGFloat(piece.positionY))
+                            .position(x: CGFloat(piece.positionX), y: CGFloat(piece.positionY) + 420)
                             .foregroundColor(.blue)
                     }
                     Rectangle()
@@ -158,24 +158,38 @@ struct FirstLevel: View {
         xPos += 20
     }
     func upAction() {
-        yPos -= 20
+        var dontmove = false
+        for piece in maze{
+            if ((piece.positionY - Int(yPos - 20) >= -1 * (20 + (piece.SideY / 2)) && piece.positionY - Int(yPos - 20) <= (20 + (piece.SideY / 2))) && (piece.positionX - Int(xPos) >= -1 * (20 + (piece.SideX / 2)) && piece.positionX - Int(xPos) <= (20 + (piece.SideX / 2)))) {
+                dontmove = true
+            }
+            if dontmove == false {
+                print(piece.positionY)
+                print(yPos)
+                
+                withAnimation{
+                    yPos += 20
+                }
+            }
+        }
     }
     func downAction() {
-       var dontmove = false
+        var dontmove = false
         for piece in maze{
             if ((piece.positionY - Int(yPos + 20) >= -1 * (20 + (piece.SideY / 2)) && piece.positionY - Int(yPos + 20) <= (20 + (piece.SideY / 2))) && (piece.positionX - Int(xPos) >= -1 * (20 + (piece.SideX / 2)) && piece.positionX - Int(xPos) <= (20 + (piece.SideX / 2)))) {
                 dontmove = true
-                print("touching")
             }
-        }
-        if dontmove == false{
-            withAnimation{
-                yPos += 20
+            if dontmove == false {
+                print(piece.positionY)
+                print(yPos)
+
+                withAnimation{
+                    yPos += 20
+                }
             }
         }
     }
 }
-
 
 struct mazePiece: Hashable{
     var positionX: Int
