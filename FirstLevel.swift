@@ -40,7 +40,7 @@ struct FirstLevel: View {
                         Rectangle()
                             .frame(width: CGFloat(piece.SideX), height: CGFloat(piece.SideY))
                             .position(x: CGFloat(piece.positionX), y: CGFloat(piece.positionY) + 420)
-                            .foregroundColor(.blue)
+                            .foregroundColor(.black)
                     }
                     Rectangle()
                         .frame(width: 405, height: 10)
@@ -152,10 +152,30 @@ struct FirstLevel: View {
         
     }
     func leftAction() {
-        xPos -= 20
+        var dontmove = false
+        for piece in maze{
+            if ((piece.positionX - Int(xPos - 20) >= -1 * (20 + (piece.SideX / 2)) && piece.positionX - Int(xPos - 20) <= (20 + (piece.SideX / 2))) && (piece.positionY - Int(yPos) >= -1 * (20 + (piece.SideY / 2)) && piece.positionY - Int(yPos) <= (20 + (piece.SideY / 2)))) {
+                dontmove = true
+            }
+            if dontmove == false {
+                withAnimation{
+                    xPos -= 20
+                }
+            }
+        }
     }
     func rightAction() {
-        xPos += 20
+        var dontmove = false
+        for piece in maze{
+            if ((piece.positionX - Int(xPos + 20) >= -1 * (20 + (piece.SideX / 2)) && piece.positionX - Int(xPos + 20) <= (20 + (piece.SideX / 2))) && (piece.positionY - Int(yPos) >= -1 * (20 + (piece.SideY / 2)) && piece.positionY - Int(yPos) <= (20 + (piece.SideY / 2)))) {
+                dontmove = true
+            }
+            if dontmove == false {
+                withAnimation{
+                    xPos += 20
+                }
+            }
+        }
     }
     func upAction() {
         var dontmove = false
@@ -164,11 +184,8 @@ struct FirstLevel: View {
                 dontmove = true
             }
             if dontmove == false {
-                print(piece.positionY)
-                print(yPos)
-                
                 withAnimation{
-                    yPos += 20
+                    yPos -= 20
                 }
             }
         }
@@ -180,9 +197,6 @@ struct FirstLevel: View {
                 dontmove = true
             }
             if dontmove == false {
-                print(piece.positionY)
-                print(yPos)
-
                 withAnimation{
                     yPos += 20
                 }
