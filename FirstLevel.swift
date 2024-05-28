@@ -14,7 +14,7 @@ struct FirstLevel: View {
     @State var collision: Bool = false
     @State var wins: Int = 0
     @State var losses: Int = 0
-    @State var maze = [mazePiece(positionX: 200, positionY: -20, SideX: 405, SideY: 10), ]
+    @State var maze = [mazePiece(positionX: 200, positionY: -20, SideX: 405, SideY: 10), mazePiece(positionX: 200, positionY: -420, SideX: 405, SideY: 10)]
 
     
     var body: some View {
@@ -40,7 +40,6 @@ struct FirstLevel: View {
                         Rectangle()
                             .frame(width: CGFloat(piece.SideX), height: CGFloat(piece.SideY))
                             .position(x: CGFloat(piece.positionX), y: CGFloat(piece.positionY) + 420)
-                            .foregroundColor(.black)
                     }
                     Rectangle()
                         .frame(width: 405, height: 10)
@@ -157,10 +156,10 @@ struct FirstLevel: View {
             if ((piece.positionX - Int(xPos - 20) >= -1 * (20 + (piece.SideX / 2)) && piece.positionX - Int(xPos - 20) <= (20 + (piece.SideX / 2))) && (piece.positionY - Int(yPos) >= -1 * (20 + (piece.SideY / 2)) && piece.positionY - Int(yPos) <= (20 + (piece.SideY / 2)))) {
                 dontmove = true
             }
-            if dontmove == false {
-                withAnimation{
-                    xPos -= 20
-                }
+        }
+        if dontmove == false {
+            withAnimation{
+                xPos -= 20
             }
         }
     }
@@ -170,10 +169,10 @@ struct FirstLevel: View {
             if ((piece.positionX - Int(xPos + 20) >= -1 * (20 + (piece.SideX / 2)) && piece.positionX - Int(xPos + 20) <= (20 + (piece.SideX / 2))) && (piece.positionY - Int(yPos) >= -1 * (20 + (piece.SideY / 2)) && piece.positionY - Int(yPos) <= (20 + (piece.SideY / 2)))) {
                 dontmove = true
             }
-            if dontmove == false {
-                withAnimation{
-                    xPos += 20
-                }
+        }
+        if dontmove == false {
+            withAnimation{
+                xPos += 20
             }
         }
     }
@@ -183,10 +182,10 @@ struct FirstLevel: View {
             if ((piece.positionY - Int(yPos - 20) >= -1 * (20 + (piece.SideY / 2)) && piece.positionY - Int(yPos - 20) <= (20 + (piece.SideY / 2))) && (piece.positionX - Int(xPos) >= -1 * (20 + (piece.SideX / 2)) && piece.positionX - Int(xPos) <= (20 + (piece.SideX / 2)))) {
                 dontmove = true
             }
-            if dontmove == false {
-                withAnimation{
-                    yPos -= 20
-                }
+        }
+        if dontmove == false {
+            withAnimation{
+                yPos -= 20
             }
         }
     }
@@ -196,10 +195,10 @@ struct FirstLevel: View {
             if ((piece.positionY - Int(yPos + 20) >= -1 * (20 + (piece.SideY / 2)) && piece.positionY - Int(yPos + 20) <= (20 + (piece.SideY / 2))) && (piece.positionX - Int(xPos) >= -1 * (20 + (piece.SideX / 2)) && piece.positionX - Int(xPos) <= (20 + (piece.SideX / 2)))) {
                 dontmove = true
             }
-            if dontmove == false {
-                withAnimation{
-                    yPos += 20
-                }
+        }
+        if dontmove == false {
+            withAnimation{
+                yPos += 20
             }
         }
     }
