@@ -14,7 +14,7 @@ struct FirstLevel: View {
     @State var collision: Bool = false
     @State var wins: Int = 0
     @State var losses: Int = 0
-    @State var maze = [mazePiece(positionX: 200, positionY: -20, SideX: 405, SideY: 10), mazePiece(positionX: 200, positionY: -420, SideX: 405, SideY: 10)]
+    @State var maze = [mazePiece(positionX: 200, positionY: -20, SideX: 405, SideY: 10), mazePiece(positionX: 200, positionY: -420, SideX: 405, SideY: 10), mazePiece(positionX: 400, positionY: -220, SideX: 10, SideY: 420), mazePiece(positionX: 0, positionY: -220, SideX: 10, SideY: 400)]
 
     
     var body: some View {
@@ -41,15 +41,6 @@ struct FirstLevel: View {
                             .frame(width: CGFloat(piece.SideX), height: CGFloat(piece.SideY))
                             .position(x: CGFloat(piece.positionX), y: CGFloat(piece.positionY) + 420)
                     }
-                    Rectangle()
-                        .frame(width: 405, height: 10)
-                        .position(x: 200, y: 0)
-                    Rectangle()
-                        .frame(width: 10, height: 400)
-                        .position(x: 400, y: 200)
-                    Rectangle()
-                        .frame(width: 10, height: 400)
-                        .position(x: 0, y: 200)
                     Rectangle()
                         .frame(width: 10, height: 300)
                         .position(x: 100, y:250)
