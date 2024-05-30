@@ -21,7 +21,7 @@ struct LevelSelectView: View {
             .font(.system(size: 20))
             .foregroundColor(.black)
         ZStack{
-            NavigationLink(destination: FirstLevel()
+            NavigationLink(destination: FirstLevel(player: Player())
             ) {
                 VStack{
                     ZStack{
