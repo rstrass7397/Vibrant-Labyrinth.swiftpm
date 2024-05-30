@@ -13,6 +13,7 @@ struct FirstLevel: View {
     @State var yPos: CGFloat = 350
     @State var gFlag: Bool = false
     @State var collision: Bool = false
+    @EnvironmentObject var customizations: Aspects
     @Environment(\.dismiss) private var dismiss
     @ObservedObject var player: Player
     @State var maze = [mazePiece(positionX: 200, positionY: 400, SideX: 408, SideY: 10), mazePiece(positionX: 200, positionY: 0, SideX: 408, SideY: 10), mazePiece(positionX: 400, positionY: 200, SideX: 10, SideY: 408), mazePiece(positionX: 5, positionY: 200, SideX: 10, SideY: 408), mazePiece(positionX: 100, positionY: 250, SideX: 10, SideY: 308), mazePiece(positionX: 200, positionY: 250, SideX: 10, SideY: 108), mazePiece(positionX: 300, positionY: 300, SideX: 208, SideY: 10), mazePiece(positionX: 200, positionY: 100, SideX: 208, SideY: 10), mazePiece(positionX: 300, positionY: 150, SideX: 10, SideY: 108)]
@@ -48,9 +49,35 @@ struct FirstLevel: View {
                         .frame(width: 40, height: 40)
                         .foregroundColor(.pink)
                         .position(x: xPos, y: yPos)
+                        .overlay {
+                            Image("Mustache")
+                                .resizable()
+                                .frame(width: 35, height:  10)
+                                .position(x: xPos, y: yPos + 7.5)
+                                .opacity((customizations.mustacheIsSelected ? 1 : 0))
+                            Image("Glasses")
+                                .resizable()
+                                .frame(width: 40, height:  15)
+                                .position(x: xPos, y: yPos - 5)
+                                .opacity((customizations.glassesAreSelected ? 1 : 0))
+                            Image("Eyes")
+                                .resizable()
+                                .frame(width: 35, height:  35)
+                                .position(x: xPos, y: yPos - 5)
+                                .opacity((customizations.eyesAreSelected ? 1 : 0))
                 }
                 .foregroundStyle(.yellow)
                 // Button appears upon completion. Above it, text. It says "Congratulations! You beat level 1. Do you want to continue. to level 2?" Button can say like "Let's go" or something. Button transfers user to the indigo maze level.
+               
+            // two deleted brqackets were here, just in case
+        
+                
+            }
+//            .onChanged({ value in
+//                self.xPos = value.location.x
+//                self.yPos = value.location.y
+//                self.checkCollision()
+        //})
 
             }
             VStack{
