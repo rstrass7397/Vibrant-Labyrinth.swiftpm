@@ -47,34 +47,31 @@ struct FirstLevel: View {
                     }
                     Rectangle()
                         .frame(width: 40, height: 40)
-                        .foregroundColor(.blue)
+                        .foregroundColor(.pink)
                         .position(x: xPos, y: yPos)
+                        .overlay {
+                            Image("Mustache")
+                                .resizable()
+                                .frame(width: 35, height:  10)
+                                .position(x: xPos, y: yPos + 7.5)
+                                .opacity((customizations.mustacheIsSelected ? 1 : 0))
+                            Image("Glasses")
+                                .resizable()
+                                .frame(width: 40, height:  15)
+                                .position(x: xPos, y: yPos - 5)
+                                .opacity((customizations.glassesAreSelected ? 1 : 0))
+                            Image("Eyes")
+                                .resizable()
+                                .frame(width: 35, height:  35)
+                                .position(x: xPos, y: yPos - 5)
+                                .opacity((customizations.eyesAreSelected ? 1 : 0))
                 }
                 .foregroundStyle(.yellow)
                 // Button appears upon completion. Above it, text. It says "Congratulations! You beat level 1. Do you want to continue. to level 2?" Button can say like "Let's go" or something. Button transfers user to the indigo maze level.
-                self.collision ? Text("You hit the wall!") : nil
+               
             }
         }
-        Rectangle()
-            .frame(width: 40, height: 40)
-            .foregroundColor(.pink)
-            .position(x: xPos, y: yPos)
-            .overlay { 
-                Image("Mustache")
-                    .resizable()
-                    .frame(width: 35, height:  10)
-                    .position(x: xPos, y: yPos + 7.5)
-                    .opacity((customizations.mustacheIsSelected ? 1 : 0))
-                Image("Glasses")
-                    .resizable()
-                    .frame(width: 40, height:  15)
-                    .position(x: xPos, y: yPos - 5)
-                    .opacity((customizations.glassesAreSelected ? 1 : 0))
-                Image("Eyes")
-                    .resizable()
-                    .frame(width: 35, height:  35)
-                    .position(x: xPos, y: yPos - 5)
-                    .opacity((customizations.eyesAreSelected ? 1 : 0))
+        
                 
             }
 //            .onChanged({ value in
