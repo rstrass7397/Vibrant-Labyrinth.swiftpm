@@ -44,6 +44,7 @@ struct FirstLevel: View {
                         Rectangle()
                             .frame(width: CGFloat(piece.SideX), height: CGFloat(piece.SideY))
                             .position(x: CGFloat(piece.positionX), y: CGFloat(piece.positionY))
+                            .foregroundColor(.yellow)
                     }
                     Rectangle()
                         .frame(width: 40, height: 40)
