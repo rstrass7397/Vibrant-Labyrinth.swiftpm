@@ -69,8 +69,7 @@ struct FirstLevel: View {
                 .foregroundStyle(.yellow)
                 // Button appears upon completion. Above it, text. It says "Congratulations! You beat level 1. Do you want to continue. to level 2?" Button can say like "Let's go" or something. Button transfers user to the indigo maze level.
                
-            }
-        }
+            // two deleted brqackets were here, just in case
         
                 
             }
