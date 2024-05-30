@@ -1,36 +1,36 @@
+////
+////  LevelContainerView.swift
+////  Vibrant Labyrinth
+////
+////  Created by Ryan Strass on 4/29/24.
+////
 //
-//  LevelContainerView.swift
-//  Vibrant Labyrinth
+//import Foundation
+//import SwiftUI
 //
-//  Created by Ryan Strass on 4/29/24.
+//struct LevelContainerView:View {
+//    var body: some View {
 //
-
-import Foundation
-import SwiftUI
-
-struct LevelContainerView:View {
-    var body: some View {
-
-        VStack{
-            FirstLevel(player: Player())
-            Rectangle()
-                .frame(width: 400, height: 30)
-                .foregroundColor(.white)
-            NavigationLink(destination: LevelSelectView()
-            ) {
-                Text("Select Level")
-                    .frame(width: 300, height: 80)
-                    .multilineTextAlignment(.center)
-                    .font(.system(size: 45))
-                    .background(RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                        .frame(width: 300, height: 80)
-                        .foregroundColor(.white))
-                    .foregroundColor(.black)
-                    .shadow(radius: 5)
-            }
-
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.white)
-    }
-}
+//        VStack{
+//            FirstLevel(player: Player())
+//            Rectangle()
+//                .frame(width: 400, height: 30)
+//                .foregroundColor(.white)
+//            NavigationLink(destination: LevelSelectView()
+//            ) {
+//                Text("Select Level")
+//                    .frame(width: 300, height: 80)
+//                    .multilineTextAlignment(.center)
+//                    .font(.system(size: 45))
+//                    .background(RoundedRectangle(cornerRadius: 25.0, style: .continuous)
+//                        .frame(width: 300, height: 80)
+//                        .foregroundColor(.white))
+//                    .foregroundColor(.black)
+//                    .shadow(radius: 5)
+//            }
+//
+//        }
+//        .frame(maxWidth: .infinity, maxHeight: .infinity)
+//        .background(.white)
+//    }
+//}
