@@ -12,6 +12,8 @@ struct FirstLevel: View {
     @State var xPos: CGFloat = 350
     @State var yPos: CGFloat = -50
     @State var collision: Bool = false
+    @EnvironmentObject var customizations: Aspects
+    
     var body: some View {
         VStack {
             ZStack {
@@ -95,6 +97,24 @@ struct FirstLevel: View {
             .frame(width: 40, height: 40)
             .foregroundColor(.pink)
             .position(x: xPos, y: yPos)
+            .overlay { 
+                Image("Mustache")
+                    .resizable()
+                    .frame(width: 35, height:  10)
+                    .position(x: xPos, y: yPos + 7.5)
+                    .opacity((customizations.mustacheIsSelected ? 1 : 0))
+                Image("Glasses")
+                    .resizable()
+                    .frame(width: 40, height:  15)
+                    .position(x: xPos, y: yPos - 5)
+                    .opacity((customizations.glassesAreSelected ? 1 : 0))
+                Image("Eyes")
+                    .resizable()
+                    .frame(width: 35, height:  35)
+                    .position(x: xPos, y: yPos - 5)
+                    .opacity((customizations.eyesAreSelected ? 1 : 0))
+                
+            }
 //            .onChanged({ value in
 //                self.xPos = value.location.x
 //                self.yPos = value.location.y

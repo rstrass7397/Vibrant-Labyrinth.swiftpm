@@ -10,9 +10,7 @@ import SwiftUI
 struct CustomizationView: View {
     
     //When a customization option is selected, the button turns green.
-    @AppStorage("mustache") var mustacheIsSelected: Bool = false
-    @AppStorage("glasses") var glassesAreSelected: Bool = false
-    @AppStorage("eyes") var eyesAreSelected: Bool = false
+    @EnvironmentObject var customizations: Aspects
     
     var body: some View {
         ZStack {
@@ -32,11 +30,11 @@ struct CustomizationView: View {
                 HStack {
                     
                         Button(action: {
-                            mustacheIsSelected.toggle()
+                            customizations.mustacheIsSelected.toggle()
                         }, label: {
                             RoundedRectangle(cornerRadius: 20)
                                 .frame(width: 100, height: 100)
-                                .foregroundStyle((mustacheIsSelected ? .green : .white))
+                                .foregroundStyle((customizations.mustacheIsSelected ? .green : .white))
                                 .overlay(Image("Mustache")
                                     .resizable()
                                     .frame(width: 95, height: 30))
@@ -45,11 +43,11 @@ struct CustomizationView: View {
                     
                     
                         Button(action: {
-                            glassesAreSelected.toggle()
+                            customizations.glassesAreSelected.toggle()
                         }, label: {
                             RoundedRectangle(cornerRadius: 20)
                                 .frame(width: 100, height: 100)
-                                .foregroundStyle((glassesAreSelected ? .green : .white))
+                                .foregroundStyle((customizations.glassesAreSelected ? .green : .white))
                                 .overlay(Image("Glasses")
                                     .resizable()
                                     .frame(width: 95, height: 35))
@@ -58,11 +56,11 @@ struct CustomizationView: View {
                     
                     
                         Button(action: {
-                            eyesAreSelected.toggle()
+                            customizations.eyesAreSelected.toggle()
                         }, label: {
                             RoundedRectangle(cornerRadius: 20)
                                 .frame(width: 100, height: 100)
-                                .foregroundStyle((eyesAreSelected ? .green : .white))
+                                .foregroundStyle((customizations.eyesAreSelected ? .green : .white))
                                 .overlay {
                                     Image("Eyes")
                                         .resizable()
@@ -84,17 +82,17 @@ struct CustomizationView: View {
                         .resizable()
                         .frame(width: 140, height: 140)
                         .offset(y: -15)
-                        .opacity((eyesAreSelected ? 1 : 0))
+                        .opacity((customizations.eyesAreSelected ? 1 : 0))
                     Image("Glasses")
                         .resizable()
                         .frame(width: 150, height: 55)
                         .offset(y: -15)
-                        .opacity((glassesAreSelected ? 1 : 0))
+                        .opacity((customizations.glassesAreSelected ? 1 : 0))
                     Image("Mustache")
                         .resizable()
                         .frame(width: 130, height: 40)
                         .offset(y: 25)
-                        .opacity((mustacheIsSelected ? 1 : 0))
+                        .opacity((customizations.mustacheIsSelected ? 1 : 0))
                 }
                 //Brings the user back to the main menu
 //                Button(action: {}, label: {
