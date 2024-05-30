@@ -13,9 +13,9 @@ struct FirstLevel: View {
     @State var yPos: CGFloat = 350
     @State var gFlag: Bool = false
     @State var collision: Bool = false
-    
+    @Environment(\.dismiss) private var dismiss
     @ObservedObject var player: Player
-    @State var maze = [mazePiece(positionX: 200, positionY: 400, SideX: 408, SideY: 10), mazePiece(positionX: 200, positionY: 0, SideX: 408, SideY: 10), mazePiece(positionX: 400, positionY: 200, SideX: 10, SideY: 408), mazePiece(positionX: 5, positionY: 200, SideX: 10, SideY: 408), mazePiece(positionX: 100, positionY: 250, SideX: 10, SideY: 308), mazePiece(positionX: 200, positionY: 250, SideX: 10, SideY: 108), mazePiece(positionX: 300, positionY: 300, SideX: 208, SideY: 10), mazePiece(positionX: 200, positionY: 100, SideX: 208, SideY: 10), mazePiece(positionX: 300, positionY: 150, SideX: 10, SideY: 108) ]
+    @State var maze = [mazePiece(positionX: 200, positionY: 400, SideX: 408, SideY: 10), mazePiece(positionX: 200, positionY: 0, SideX: 408, SideY: 10), mazePiece(positionX: 400, positionY: 200, SideX: 10, SideY: 408), mazePiece(positionX: 5, positionY: 200, SideX: 10, SideY: 408), mazePiece(positionX: 100, positionY: 250, SideX: 10, SideY: 308), mazePiece(positionX: 200, positionY: 250, SideX: 10, SideY: 108), mazePiece(positionX: 300, positionY: 300, SideX: 208, SideY: 10), mazePiece(positionX: 200, positionY: 100, SideX: 208, SideY: 10), mazePiece(positionX: 300, positionY: 150, SideX: 10, SideY: 108)]
 
     var body: some View {
         VStack {
@@ -46,7 +46,7 @@ struct FirstLevel: View {
                     }
                     Rectangle()
                         .frame(width: 40, height: 40)
-                        .foregroundColor(.blue)
+                        .foregroundColor(.pink)
                         .position(x: xPos, y: yPos)
                 }
                 .foregroundStyle(.yellow)
@@ -102,7 +102,21 @@ struct FirstLevel: View {
             })
         }
         .frame(width: 400, height: 180)
-        
+        .alert("Level Completed", isPresented: $gFlag) {
+            NavigationLink(destination: SecondLevel()
+            ) {
+                Text("Next Level")
+            }
+            Button(action: {dismiss()}, label: {
+                Text("Select a Level")
+            })
+            NavigationLink(destination: ContentView()
+            ) {
+                Text("Main Menu")
+            }
+            
+        }
+        .navigationBarBackButtonHidden(true)
     }
     
     func checkCollision(x: Int, y: Int){
@@ -162,8 +176,6 @@ struct FirstLevel: View {
         if ( (xPos >= 0)&&(xPos <= 100)&&(yPos>=300)&&(yPos<=400) ){
             player.score += 1
             gFlag = true
-            xPos = 350
-            yPos = 350
         } 
         else{
             gFlag = false

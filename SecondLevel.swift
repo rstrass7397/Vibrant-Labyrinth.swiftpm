@@ -260,6 +260,8 @@ struct SecondLevel:View {
             })
         }
         .frame(width: 400, height: 180)
+//uncomment this when level 2 works V
+//        .navigationBarBackButtonHidden(true)
     }
     func leftAction() {
         xPos -= 20
