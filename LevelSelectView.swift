@@ -9,20 +9,19 @@ import Foundation
 import SwiftUI
 
 struct LevelSelectView: View {
-    @Environment(\.dismiss) var dismiss
     @State var number = 1
-    @State var lvl1active = true
+    @State var lvl1active = false
     @State var lvl1visibility = 1.0
     @State var lvl2active = false
     @State var lvl2visibility = 0.0
     var body: some View {
-        Text("Level One")
+        Text("Select a Maze")
             .frame(width: 400, height: 50)
             .bold()
             .font(.system(size: 20))
             .foregroundColor(.black)
         ZStack{
-            NavigationLink(destination: FirstLevel()
+            NavigationLink(destination: FirstLevel(player: Player())
             ) {
                 VStack{
                     ZStack{
@@ -103,7 +102,7 @@ struct LevelSelectView: View {
             }
             .disabled(lvl1active)
             .opacity(lvl1visibility)
-            NavigationLink(destination: SecondLevel()
+            NavigationLink(destination: SecondLevel() 
             ) {
                 VStack {
                     ZStack {
@@ -266,7 +265,6 @@ struct LevelSelectView: View {
         
 
         }
-        .navigationBarBackButtonHidden(true)
     }
     
 

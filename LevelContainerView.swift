@@ -12,7 +12,7 @@ struct LevelContainerView:View {
     var body: some View {
 
         VStack{
-            FirstLevel()
+            FirstLevel(player: Player())
             Rectangle()
                 .frame(width: 400, height: 30)
                 .foregroundColor(.white)

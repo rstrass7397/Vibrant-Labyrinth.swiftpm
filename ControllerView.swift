@@ -5,6 +5,7 @@ struct ControllerView: View {
     @State var timer: Timer?
     @State var xPos: CGFloat = 200
     @State var yPos: CGFloat = 300
+    
     var body: some View {
         VStack {
             Button(action:{
